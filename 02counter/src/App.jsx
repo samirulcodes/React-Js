@@ -25,6 +25,7 @@ function App() {
 
   // remove value button
   const removeValue = () => {
+    // setCounter(counter-1)
     setCounter(prevNumber => {
       if (prevNumber > 0) {
         return prevNumber - 1
