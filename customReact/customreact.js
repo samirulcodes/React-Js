@@ -1,4 +1,4 @@
-function customRender(reactElement, container){
+function customRender(reactElement, container) {
     /*
     const domElement = document.createElement(reactElement.type)
     domElement.innerHTML = reactElement.children
@@ -16,7 +16,7 @@ function customRender(reactElement, container){
     container.appendChild(domElement)
 }
 
-const reactElement = { 
+const reactElement = {
     type: 'a',
     props: {
         href: 'https://google.com',
