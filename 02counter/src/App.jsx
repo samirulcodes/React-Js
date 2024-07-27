@@ -19,13 +19,12 @@ function App() {
       if(prevNumber<20){
         return prevNumber+1
       }
-      return prevNumber
     })
   }
 
   // remove value button
   const removeValue = () => {
-    // setCounter(counter-1)
+    // counter=counter-1  
     setCounter(prevNumber => {
       if (prevNumber > 0) {
         return prevNumber - 1
