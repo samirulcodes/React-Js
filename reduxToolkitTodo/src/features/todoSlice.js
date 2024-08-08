@@ -17,7 +17,7 @@ export const todoSlice = createSlice({
         addTodo: (state, action) => { // we have always access of two things here
             const todo = {
                 id: nanoid(), 
-                text: action.payload
+                text: action.payload //value access
             }
             state.todos.push(todo)
         },
