@@ -61,6 +61,8 @@ export default function PostForm({ post }) {
         return "";
     }, []);
 
+    // interview-new concept
+    // watch mathods ko optimize unsubscribe methods se hoga
     React.useEffect(() => {
         const subscription = watch((value, { name }) => {
             if (name === "title") {
@@ -72,8 +74,9 @@ export default function PostForm({ post }) {
     }, [watch, slugTransform, setValue]);
 
     return (
-        // help to creack interview-new concept
+
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+            {/* form left part */}
             <div className="w-2/3 px-2">
                 <Input
                     label="Title :"
@@ -92,6 +95,8 @@ export default function PostForm({ post }) {
                 />
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
+
+            {/* form right part */}
             <div className="w-1/3 px-2">
                 <Input
                     label="Featured Image :"
@@ -126,3 +131,30 @@ export default function PostForm({ post }) {
 
 
 // `navigate`: This is like a GPS for your website. It moves the user to different pages.
+
+// line 54-74 explanations
+
+// 1. The slugTransform Function:
+// Purpose: Converts a string (like a title) into a slug.
+
+// Steps:
+// Trims any extra spaces.
+// Converts the string to lowercase.
+// Replaces any non-alphanumeric characters (except spaces) with hyphens (-).
+// Replaces spaces with hyphens.
+// For example, "Hello World! 2024" becomes "hello-world-2024".
+
+// 2. Using useCallback:
+// This is a React hook that ensures the slugTransform function is memoized, meaning it won't be recreated on every render unless its dependencies change. This improves performance.
+
+// 3. The useEffect Hook:
+// Purpose: Watches the value of an input field (likely named "title") and automatically generates a slug when the title changes.
+
+// Steps:
+// Subscribes to changes in the title input field.
+// When the title changes, it runs slugTransform on the new value.
+// The result is set as the value of a slug input field.
+// Clean-up: When the component is unmounted, the subscription is removed to prevent memory leaks.
+
+// 4. Putting It Together:
+// When a user types a title, this code automatically generates a corresponding slug, ensuring it's URL-friendly and updates the form field for the slug accordingly.
