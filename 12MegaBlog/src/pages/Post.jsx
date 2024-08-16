@@ -60,8 +60,40 @@ export default function Post() {
                 </div>
                 <div className="browser-css">
                     {parse(post.content)}
-                    </div>
+                </div>
             </Container>
         </div>
     ) : null;
 }
+
+
+
+// EXPLANATION
+
+// Summary
+// The code loads a specific post based on a "slug" from the URL, checks if the logged-in user is the author, and allows the user to delete the post if they are the author. If the post can't be found or deleted, the user is redirected to the homepage.
+
+
+// Purpose of the Function:
+// The Post function is responsible for displaying a specific post by fetching data based on a "slug" (a part of the URL that uniquely identifies the post) and allows the user to delete the post if they are the author.
+
+// useState:
+// const [post, setPost] = useState(null);This creates a piece of state called post and initializes it as null. When the post data is fetched from the server, the setPost function will be used to update it.
+
+// useParams and useNavigate:
+// { slug } = useParams(); gets the "slug" from the URL. It helps us know which post to load.useNavigate() allows us to redirect (navigate) to other pages, like going back to the homepage if something goes wrong.
+
+// useSelector:
+// useSelector gets the logged-in user’s data from the application's state (from something like Redux). This helps determine if the current user is the author of the post.
+
+
+// isAuthor:
+// isAuthor checks if the current user is the one who created the post. It compares the post.userId with the userData.$id to determine if the user is the author.
+
+
+// useEffect:useEffect(() =>
+// {...}, [slug, navigate]); runs some code when the component is first loaded or when the slug changes.Inside, it calls appwriteService.getPost(slug) to fetch the post from the server. If the post is found, it updates the state. If the post is not found or the slug is missing, it redirects the user to the homepage.
+
+
+// deletePost Function:
+// deletePost is a function that deletes the current post. It calls appwriteService.deletePost(post.$id) to delete the post. If successful, it also deletes any associated image file and navigates back to the homepage.
