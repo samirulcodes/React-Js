@@ -11,7 +11,10 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
             {/* we can pass many thing in controller components like name, control,etc */}
             <Controller name={name || "content"} control={control}
                 render={({ field: { onChange } }) => (
-                    <Editor initialValue={defaultValue} init={
+                    <Editor 
+                    apiKey='wjk2vbov1owuznuqq7scln4cm9i3l2bngzp6swbrrsa4gv4h'
+                    initialValue={defaultValue} init={
+
                         {
                             initialValue: defaultValue, height: 500, menubar: true,
                             plugins: ["image", "advlist", "autolink", "lists", "link", "image", "charmap", "preview", "anchor", "searchreplace", "visualblocks", "code", "fullscreen", "insertdatetime", "media", "table", "code", "help", "wordcount", "anchor",

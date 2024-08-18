@@ -20,7 +20,7 @@ function Login() {
             const session = await authService.login(data)
             if (session) {
                 // userData always await se niklega q ke userData koi session se nhi nikal rhe h ,getCurrentUser() ko call kr rhe h
-                const userData = await authService.getCurrentUSer()
+                const userData = await authService.getCurrentUser()
                 if(userData) dispatch(authLogin(userData));
                 navigate("/") // if user login then directly go to root or page
             }

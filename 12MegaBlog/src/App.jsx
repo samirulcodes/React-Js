@@ -13,7 +13,7 @@ function App() {
 
   // take useEffect and ask them that you loggedIn or not 
   useEffect(() => {
-    authService.getCurrentUSer()
+    authService.getCurrentUser()
       // .then()--> if successfully found then ok
       .then((userData) => {
         if (userData) {
@@ -23,7 +23,7 @@ function App() {
         }
       })
       // if there is any error it go to catch statement
-      .catch((e) => e.window.alert("There is some error"))
+      // .catch((e) => e.window.alert("There is some error"))
 
       // finally()--> finally will execute there is no exception, call setLoading that loading work is over so make it false
       .finally(() => setLoading(false))
@@ -36,7 +36,7 @@ function App() {
         {/* components */}
         <Header/>
         <main>
-          {/* <Outlet/> */}
+       TODO:  <Outlet/>
         </main>
         <Footer/>
       </div>
